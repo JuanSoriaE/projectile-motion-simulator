@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+    <title>Projectile Motion</title>
+</head>
+<body>
+    <header>
+
+        <h1>Projectile Motion Simulator</h1>
+        <p class="note-text">Without using canvas.</p>
+    </header>
+    <main>
+        <div id="settings-panel">
+            <div class="input-container">
+                <label for="initial-angle">Initial Angle:</label>
+                <input type="text" id="initial-angle" value="45">
+            </div>
+            <div class="input-container">
+                <label for="initial-vel">Initial Velocity:</label>
+                <input type="text" id="initial-vel" value="30">
+            </div>
+            <div class="input-container">
+                <label for="initial-g">Gravitational Acceleration:</label>
+                <input type="text" id="initial-g" value="-9.8">
+            </div>
+            <div class="buttons-container">
+                <button id="stop-button" onclick="stop()">STOP</button>
+                <button id="run-button" onclick="run()">RUN</button>
+            </div>
+        </div>
+        <div id="ground">
+            <span id="projectile">
+            </span>
+        </div>
+    </main>
+    <section id="info-container">
+        <div class="info-data-container">
+            <span>Initial Angle: </span><span id="span-initial-angle"></span>
+        </div>
+        <div class="info-data-container">
+            <span>Initial Velocity: </span><span id="span-initial-vel"></span>
+        </div>
+        <div class="info-data-container">
+            <span>Gravitational Acceleration: </span><span id="span-initial-g"></span>
+        </div>
+    </section>
+    <footer>
+        <script src="main.js"></script>
+    </footer>
+</body>
+</html>
