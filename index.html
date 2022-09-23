@@ -28,6 +28,18 @@
                 <label for="initial-g">Gravitational Acceleration:</label>
                 <input type="text" id="initial-g" value="-9.8">
             </div>
+            <div class="input-container">
+                <div>
+                    <label for="air-resistance">Air Resistance:</label>
+                    <p class="note-text">The constante K is considering this:</p>
+                    <ol class="note-text">
+                        <li>Mass: 10kg.</li>
+                        <li>Sphere with diameter of 1m.</li>
+                        <li>Drag Coefficient: 0.47.</li>
+                    </ol>
+                </div>
+                <input type="checkbox" id="air-resistance">
+            </div>
             <div class="buttons-container">
                 <button id="stop-button" onclick="stop()">STOP</button>
                 <button id="run-button" onclick="run()">RUN</button>
@@ -36,6 +48,7 @@
         <div id="ground">
             <span id="projectile">
             </span>
+            <button id="clear-markers" onclick="clearMarkers()">Clear Markers</button>
         </div>
     </main>
     <section id="info-container">
@@ -43,10 +56,10 @@
             <span>Initial Angle: </span><span id="span-initial-angle"></span>
         </div>
         <div class="info-data-container">
-            <span>Initial Velocity: </span><span id="span-initial-vel"></span>
+            <span>X Velocity: </span><span id="x_vel"></span>
         </div>
         <div class="info-data-container">
-            <span>Gravitational Acceleration: </span><span id="span-initial-g"></span>
+            <span>Y Velocity: </span><span id="y_vel"></span>
         </div>
     </section>
     <footer>

@@ -11,7 +11,7 @@ body {
   font-size: 18px;
 }
 
-input, button {
+input[type="text"], input[type="checkbox"], button {
   all: unset;
 }
 
@@ -28,6 +28,27 @@ main {
 .note-text {
   font-size: 15px;
   color: #999999;
+}
+
+.input-container .note-text {
+  font-size: 12px;
+  color: #999999;
+}
+
+.input-container ol {
+  margin-left: 30px;
+}
+
+#air-resistance {
+  width: 20px;
+  height: 20px;
+  margin-right: 30px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+#air-resistance:checked {
+  background-color: #fff;
 }
 
 /* SETTINGS PANEL */
@@ -102,16 +123,28 @@ button {
   padding: 20px;
   border: 1px solid #fff;
   flex-grow: 1;
+  width: 0;
 }
 
 #span-initial-angle::after {
   content: '°';
 }
 
-#span-initial-vel::after {
+#y_vel::after, #x_vel::after {
   content: ' m/s';
 }
 
-#span-initial-g::after {
-  content: ' m/s²';
+.marker {
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#clear-markers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }
