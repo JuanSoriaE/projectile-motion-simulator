@@ -113,8 +113,8 @@ ground.addEventListener('click', e => {
   const i = document.createElement('i');
   i.onauxclick = e => deleteMarker(e);
   i.classList.add('marker');
-  i.style.left = `${e.clientX - ground_rect.x - 5}px`;
-  i.style.top = `${e.clientY - ground_rect.y - 5}px`;
+  i.style.left = `${e.clientX - ground_rect.x - 8}px`;
+  i.style.top = `${e.clientY - ground_rect.y - 18}px`;
   
   markers_counter++;
   i.id = `marker-${markers_counter}`;
@@ -130,6 +130,29 @@ const clearMarkers = () => {
     marker.remove();
   }
 };
+
+// Key commands
+window.addEventListener('keydown', e => {
+  switch (e.key.toLowerCase()) {
+    case 'r':
+      run();
+      break;
+    
+    case 's':
+      stop();
+      break;
+
+    case 'a':
+      air_resistance_check.checked = !air_resistance_check.checked;8
+      break;
+
+    case 'c':
+      clearMarkers();
+
+    default:
+      break;
+  }
+});
 
 // MAIN
 function main() {

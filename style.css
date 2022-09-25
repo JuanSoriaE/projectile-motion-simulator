@@ -135,10 +135,11 @@ button {
 }
 
 .marker {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: blue;
-  border-radius: 50%;
+  border-radius: 50% 50% 50% 0;
+  rotate: -45deg;
   position: absolute;
 }
 
