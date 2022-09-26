@@ -45,6 +45,13 @@ main {
   margin-right: 30px;
   border: 1px solid #fff;
   cursor: pointer;
+  position: relative;
+}
+
+#air-resistance::after {
+  content: url('./assets/check-icon.png');
+  padding: 0;
+  margin-left: 2px;
 }
 
 #air-resistance:checked {
@@ -148,4 +155,26 @@ button {
   top: 0;
   right: 0;
   margin: 10px;
+}
+
+.air-resistance-form {
+  align-items: flex-start;
+}
+
+.air-resistance-form .input-container input {
+  border: 1px solid #fff;
+}
+
+.air-resistance-form .input-container {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #b9b9b9;
+}
+
+footer {
+  padding: 20px;
+}
+
+.keycommands-container > ul {
+  margin-left: 20px;
 }

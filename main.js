@@ -7,6 +7,10 @@ const angle_span = document.getElementById('span-initial-angle');
 const x_velocity_span = document.getElementById('x_vel');
 const y_velocity_span = document.getElementById('y_vel');
 const air_resistance_check = document.getElementById('air-resistance');
+const mass_input = document.getElementById('mass');
+const diameter_input = document.getElementById('diameter');
+const drag_coefficient_input = document.getElementById('drag-coefficient');
+
 
 // Default values
 let play = false;
@@ -18,7 +22,11 @@ let g = -9.81;
 const time_step = 0.03; // Have to be in seconds
 
 // Values for air drag force
-const k = 0.35;
+let radius = 0.5;
+let drag_coefficient = 0.47;
+let k = 0.18;
+
+let mass = 10;
 
 let vel_x = initial_vel * x_component;
 let vel_y = initial_vel * y_component;
@@ -61,6 +69,17 @@ function setData() {
   initial_angle = Number(angle_input.value) || 45;
   initial_vel = Number(velocity_input.value) || 30;
   g = Number(g_input.value) || -9.8;
+  mass = Number(mass_input.value) || 10;
+  radius = Number(diameter_input.value) / 2 || 0.5;
+  drag_coefficient = Number(drag_coefficient_input.value) || 0.47;
+
+  // Set data in inputs
+  angle_input.value = initial_angle;
+  velocity_input.value = initial_vel;
+  g_input.value = g;
+  mass_input.value = mass;
+  diameter_input.value = radius * 2;
+  drag_coefficient_input.value = drag_coefficient;
   
   x_component = Math.cos(initial_angle * Math.PI / 180).toFixed(2) || 0.7;
   y_component = Math.sin(initial_angle * Math.PI / 180).toFixed(2) || 0.7;
@@ -69,8 +88,11 @@ function setData() {
   x = 0;
   y = 0;
 
-  if (air_resistance_check.checked) sum_air_helper = -k/10;
-  else sum_air_helper = 0;
+  // Air resistance
+  if (air_resistance_check.checked) {
+    k = (drag_coefficient * Math.PI.toFixed(2) * (radius**2)) / 2;
+    sum_air_helper = -k/mass;
+  } else sum_air_helper = 0;
   
   displayData();
 }
@@ -134,12 +156,9 @@ const clearMarkers = () => {
 // Key commands
 window.addEventListener('keydown', e => {
   switch (e.key.toLowerCase()) {
-    case 'r':
-      run();
-      break;
-    
-    case 's':
-      stop();
+    case ' ':
+      if (play) stop();
+      else run();
       break;
 
     case 'a':

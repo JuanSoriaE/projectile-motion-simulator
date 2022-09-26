@@ -17,26 +17,38 @@
     <main>
         <div id="settings-panel">
             <div class="input-container">
-                <label for="initial-angle">Initial Angle:</label>
+                <label for="initial-angle">Initial Angle (deg):</label>
                 <input type="text" id="initial-angle" value="45">
             </div>
             <div class="input-container">
-                <label for="initial-vel">Initial Velocity:</label>
+                <label for="initial-vel">Initial Velocity (m/s):</label>
                 <input type="text" id="initial-vel" value="30">
             </div>
             <div class="input-container">
-                <label for="initial-g">Gravitational Acceleration:</label>
+                <label for="initial-g">Gravitational Acc (m/s²):</label>
                 <input type="text" id="initial-g" value="-9.8">
             </div>
-            <div class="input-container">
+            <div class="input-container air-resistance-form">
                 <div>
                     <label for="air-resistance">Air Resistance:</label>
-                    <p class="note-text">The constante K is considering this:</p>
-                    <ol class="note-text">
+                    <p class="note-text">Air resistance variables:</p>
+                    <!-- <ol class="note-text">
                         <li>Mass: 10kg.</li>
                         <li>Sphere with diameter of 1m.</li>
                         <li>Drag Coefficient: 0.47.</li>
-                    </ol>
+                    </ol> -->
+                    <div class="input-container">
+                        <label for="mass">Mass (kg):</label>
+                        <input type="text" id="mass" value="10">
+                    </div>
+                    <div class="input-container">
+                        <label for="diameter">Diameter (m):</label>
+                        <input type="text" id="diameter" value="1">
+                    </div>
+                    <div class="input-container">
+                        <label for="drag-coefficient">Drag Coefficient:</label>
+                        <input type="text" id="drag-coefficient" value="0.47">
+                    </div>
                 </div>
                 <input type="checkbox" id="air-resistance">
             </div>
@@ -63,6 +75,13 @@
         </div>
     </section>
     <footer>
+        <div class="keycommands-container note-text">
+            <ul>
+                <li>Space: Run or Stop simulation.</li>
+                <li>a: Enable or Disable air resistance.</li>
+                <li>c: Clear markers.</li>
+            </ul>
+        </div>
         <script src="main.js"></script>
     </footer>
 </body>
